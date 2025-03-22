@@ -17,33 +17,32 @@ This Power BI dashboard analyzes Domino's pizza sales data, providing key insigh
 ## 🔢 DAX Queries
 Below are the DAX queries used for key calculations in the dashboard:
 
+Calculates the total revenue generated from pizza sales.
 ```DAX
 Total Revenue = SUM('Dataset'[price])
 ```
-Calculates the total revenue generated from pizza sales.
-
+Counts the number of distinct orders placed.
 ```DAX
 Total no of order = DISTINCTCOUNT('Dataset'[order_id])
 ```
-Counts the number of distinct orders placed.
 
+Determines the total number of pizzas sold.
 ```DAX
 Total Pizza Sold = SUM('Dataset'[quantity])
 ```
-Determines the total number of pizzas sold.
+
+Computes the average revenue per order.
 
 ```DAX
 Avg Order Value = DIVIDE([Total Revenue],[Total no of order])
 ```
-Computes the average revenue per order.
 
+Finds the average number of pizzas per order.
 ```DAX
 Avg Pizza per Order = DIVIDE([Total Pizza Sold],[Total no of order])
 ```
-Finds the average number of pizzas per order.
-
 ---
-![DASHBOARD](Dominos Dashboard.pdf)
+
 ## 📊 Dashboard Breakdown
 The dashboard consists of the following key sections:
 
