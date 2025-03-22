@@ -1,54 +1,85 @@
-# Domino's Sales Analysis Dashboard
+# 📊 Domino's Sales Dashboard
 
-## 1. Introduction
-The dataset used for this Power BI dashboard contains order details of Domino's pizzas, including revenue, number of orders, quantity sold, and various categorical breakdowns. The key metrics analyzed include:
+## 🗂 Introduction
+This Power BI dashboard analyzes Domino's pizza sales data, providing key insights into revenue, order trends, and customer preferences. The dataset includes details on order transactions, pizza categories, and pricing information.
 
-- **Total Revenue**: The total earnings from all pizza orders.
-- **Total Number of Orders**: The count of distinct orders placed.
-- **Average Order Value**: The average revenue per order.
-- **Total Pizza Sold**: The total quantity of pizzas ordered.
-- **Average Pizza per Order**: The average number of pizzas per order.
+### 📌 Key Dataset Columns:
+- **order_id**: Unique identifier for each order.
+- **pizza_name**: Name of the pizza ordered.
+- **quantity**: Number of pizzas in the order.
+- **order_date** & **order_time**: Timestamp of the order.
+- **price**: Total price of the order.
+- **pizza_category**: Category of the pizza (e.g., Veggie, Classic, Chicken, Supreme).
+- **pizza_sizes**: Available sizes (S, M, L, XL, XXL).
 
-## 2. DAX Queries
-Below are the DAX formulas used to compute key metrics:
+---
+
+## 🔢 DAX Queries
+Below are the DAX queries used for key calculations in the dashboard:
+
+```DAX
+Total Revenue = SUM('Dataset'[price])
+```
+Calculates the total revenue generated from pizza sales.
+
+```DAX
+Total no of order = DISTINCTCOUNT('Dataset'[order_id])
+```
+Counts the number of distinct orders placed.
+
+```DAX
+Total Pizza Sold = SUM('Dataset'[quantity])
+```
+Determines the total number of pizzas sold.
 
 ```DAX
 Avg Order Value = DIVIDE([Total Revenue],[Total no of order])
-Avg Pizza per Order = DIVIDE([Total Pizza Sold],[Total no of order])
-Total no of order = DISTINCTCOUNT('Dataset'[order_id])
-Total Pizza Sold = SUM('Dataset'[quantity])
-Total Revenue = SUM('Dataset'[price])
 ```
+Computes the average revenue per order.
 
-## 3. Dashboard Breakdown
-The Power BI dashboard includes:
+```DAX
+Avg Pizza per Order = DIVIDE([Total Pizza Sold],[Total no of order])
+```
+Finds the average number of pizzas per order.
 
-- **KPI Cards** displaying:
-  - Total Revenue: **24.06M**
-  - Total Orders: **21K**
-  - Avg Order Value: **1.13K**
-  - Total Pizza Sold: **50K**
-  - Avg Pizza per Order: **2**
+---
+![DASHBOARD](Dominos Dashboard.pdf)
+## 📊 Dashboard Breakdown
+The dashboard consists of the following key sections:
 
-- **Visualizations**:
-  - **Order by Weekday**: A bar chart showing the number of orders by weekday, with the highest on **Wednesday (3.5K orders)**.
-  - **Order Peak Time**: A histogram showing peak order times, with spikes around **10 AM - 2 PM**.
-  - **Total Revenue by Pizza Category**: A pie chart showing revenue share among categories:
-    - Classic: **26.9%**
-    - Supreme: **25.5%**
-    - Chicken: **23.88%**
-    - Veggie: **23.72%**
-  - **Bottom 5 Selling Pizzas** and **Top 5 Selling Pizzas** with revenue breakdown.
-  - **Pizza Sizes' Order Distribution**: A pie chart showing distribution among L, M, S, XL, and XXL sizes, with L being the most ordered (45.75%).
+1. **Total Metrics**
+   - Displays **Total Revenue, Total Orders, Avg Order Value, Total Pizzas Sold, and Avg Pizzas per Order**.
+   
+2. **Order by Weekday**
+   - Bar chart showing total orders for each day of the week.
+   
+3. **Order Peak Time**
+   - Histogram displaying order trends by time of the day.
+   
+4. **Total Revenue by Pizza Category**
+   - Pie chart visualizing revenue distribution across different pizza categories.
+   
+5. **Top & Bottom Selling Pizzas**
+   - List of the best and least-performing pizzas based on revenue.
+   
+6. **Pizza Size Preferences**
+   - Pie chart showing the distribution of orders across different pizza sizes.
 
-## 4. Insights
-- **Peak Sales Days**: Wednesdays have the highest orders, while Fridays have the lowest.
-- **Best-selling Pizza**: The **Barbecue Chicken Pizza** has the highest revenue (**1.25M**).
-- **Worst-selling Pizza**: The **Brie Carre Pizza** has the lowest revenue (**340K**).
-- **Order Timing**: Most orders happen around lunchtime (10 AM - 2 PM).
-- **Category Performance**: Classic pizzas generate the most revenue, followed by Supreme.
+---
 
-## 5. Dashboard Output
-For a visual representation, refer to the full Power BI dashboard output:
+## 📈 Key Insights
+- **Total Revenue**: ₹24.06M from **21K** orders.
+- **Average Order Value**: ₹1.13K per order.
+- **Total Pizzas Sold**: 50K with an **Avg of 2 pizzas per order**.
+- **Peak Order Time**: Highest orders observed around **2:00 PM - 3:00 PM**.
+- **Most Popular Pizza Size**: **Large (L) with 45.75% of orders**.
+- **Revenue Breakdown**:
+  - Classic (26.9%)
+  - Supreme (25.5%)
+  - Chicken (23.88%)
+  - Veggie (23.72%)
 
-[Domino's Dashboard Output (PDF)](../mnt/data/Dominos%20Dashboard.pdf)
+---
+
+## 📌 Conclusion
+This dashboard provides valuable insights into sales trends, customer preferences, and order patterns, helping optimize inventory and marketing strategies. 🚀
