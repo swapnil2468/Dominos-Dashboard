@@ -43,6 +43,7 @@ Avg Pizza per Order = DIVIDE([Total Pizza Sold],[Total no of order])
 ```
 ---
 
+![DASHBOARD](assets/Dashboard.jpg)
 ## 📊 Dashboard Breakdown
 The dashboard consists of the following key sections:
 
